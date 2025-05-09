@@ -1,6 +1,5 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column } from '@adonisjs/lucid/orm'
-import User from './user.js'
 import { belongsTo } from '@adonisjs/lucid/orm'
 import type { BelongsTo } from '@adonisjs/lucid/types/relations'
 
@@ -15,12 +14,6 @@ export default class Categoria extends BaseModel {
   declare tipo: string // entrada - despesas - investimento
   @column()
   declare descricao: string // Descrição da categoria, se necessário
-  @column()
-  declare usuarioId: number // ID do usuário que criou a categoria
-
-
-  @belongsTo(() => User)
-  declare usuario: BelongsTo<typeof User>
   
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime

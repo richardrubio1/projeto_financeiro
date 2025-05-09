@@ -8,13 +8,6 @@ export default class extends BaseSchema {
       table.increments('id')
       table.string ('nome')
       table.string ('tipo') // entrada - despesas - investimento
-      table
-        .integer('usuario_id')
-        .unsigned()
-        .references('id')
-        .inTable('users')
-        .notNullable()
-        
       table.timestamp('created_at')
       table.timestamp('updated_at')
     })

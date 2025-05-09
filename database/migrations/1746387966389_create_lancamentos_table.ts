@@ -10,18 +10,12 @@ export default class extends BaseSchema {
       table.decimal('valor').notNullable()
       table.string('natureza').notNullable()
 
-      table.string('categoria_id').notNullable()
-      table
-        .foreign('categoria_id')
+     table
+        .integer('categoria_id')
+        .unsigned()
         .references('id')
         .inTable('categorias')
       
-      table.string('usuario_id').notNullable()
-        table
-          .foreign('usuario_id')
-          .references('id')
-          .inTable('usuarios')
-        
       table.timestamp('created_at')
       table.timestamp('updated_at')
     })

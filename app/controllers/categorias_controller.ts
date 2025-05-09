@@ -35,7 +35,6 @@ export default class CategoriasController {
             'nome',
             'tipo',
             'descricao',
-            'usuarioId' //chave estrangeira
         ])
         const categoria = await Categoria.create(dados)
         return response.created(categoria)
