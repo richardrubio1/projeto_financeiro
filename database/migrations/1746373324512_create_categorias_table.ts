@@ -7,7 +7,11 @@ export default class extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
       table.string ('nome')
-      table.string ('tipo') // entrada - despesas - investimento
+      table // entrada - despesas - investimento
+        .integer('tipo_id')
+        .unsigned()
+        .references('id')
+        .inTable('tipo') 
       table.timestamp('created_at')
       table.timestamp('updated_at')
     })
