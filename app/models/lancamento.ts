@@ -6,6 +6,7 @@ import type { BelongsTo, HasMany } from '@adonisjs/lucid/types/relations'
 import Categoria from './categoria.js'
 import Recorrencia from './recorrencia.js'
 import ItensLancados from './itens_lancado.js'
+import Cartao from './cartao.js'
 
 export default class Lancamento extends BaseModel {
   @column({ isPrimary: true })
@@ -34,6 +35,12 @@ export default class Lancamento extends BaseModel {
 
   @hasMany(() => ItensLancados)
   declare itensLancados: HasMany<typeof ItensLancados>
+
+  @belongsTo(() => Cartao)
+  declare cartao: BelongsTo<typeof Cartao>
+
+  @column()
+  declare cartaoId: number
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime

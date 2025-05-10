@@ -11,6 +11,7 @@ export default class Lancamentos extends BaseSchema {
       table.string('natureza').notNullable() // Ex: "Fixa" ou "Variável"
       table.integer('categoria_id').unsigned().references('id').inTable('categorias').onDelete('CASCADE')
       table.integer('recorrencia_id').unsigned().references('id').inTable('recorrencias').nullable()
+      table.integer('cartao_id').unsigned().references('id').inTable('cartoes').onDelete('SET NULL').nullable()
       table.timestamp('create_at', { useTz: true })
       table.timestamp('update_at', { useTz: true })
     })
