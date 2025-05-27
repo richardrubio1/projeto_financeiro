@@ -1,8 +1,8 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import Lancamento from '#models/lancamento'
-import Recorrencia from '#models/recorrencia'
+//import Recorrencia from '#models/recorrencia'
 // Controller completo de Lancamento com suporte a ItensLancados
-import ItensLancados from '#models/itensLancados'
+//import ItensLancados from '#models/itensLancados'
 
 export default class LancamentosController {
   public async index({ response }: HttpContext) {

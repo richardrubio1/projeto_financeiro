@@ -3,7 +3,7 @@ import Categoria from '#models/categoria'
 
 export default class CategoriasController {
     async index({ response }: HttpContext) {
-        const categorias = await Categoria.all()
+        const categorias = await Categoria.query().preload('tipo')
         return response.ok(categorias)
     }
     async show({ params, response }: HttpContext) {
@@ -33,8 +33,7 @@ export default class CategoriasController {
     async store({ request, response }: HttpContext) {
         const dados = request.only([
             'nome',
-            'tipo',
-            'descricao',
+            'tipoId'   // entrada - despesas - investimento
         ])
         const categoria = await Categoria.create(dados)
         return response.created(categoria)
